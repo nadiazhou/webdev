@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        .grey { background-color: #cccccc; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid rgb(255, 253, 253); padding: 5px; text-align: center; width: 15px; height: 11px; }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                {% for header in headings %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for segment in data %}
+                {# Top empty rows #}
+                <tr>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                </tr>
+                {# Actual segment rows #}
+                {% for row in segment %}
+                <tr>
+                    <td class="grey"></td>
+                    {% for cell in row %}
+                    <td>{{ cell["Voltage"] }}</td>
+                    {% endfor %}
+                    <td class="grey"></td>
+                </tr>
+                {% endfor %}
+                {# Bottom empty rows #}
+                <tr>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                    <td class="grey"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
